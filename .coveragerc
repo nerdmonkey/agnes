@@ -1,0 +1,8 @@
+# .coveragerc
+
+[run]
+source = my_module
+omit = */.serverless/*, */tests/*, */.venv/*, */venv/*, __init__.py, */database/*
+
+[report]
+show_missing = true
