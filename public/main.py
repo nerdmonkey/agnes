@@ -6,14 +6,14 @@ from fastapi.templating import Jinja2Templates
 from mangum import Mangum
 
 from config.app import get_settings
-from routes import health, users
+from routes import health, users, categories, locations, devices, readings
 
 sys.path.append(".")
 settings = get_settings()
 
 
 description = """
-Spartan, often called "The swiss army knife for serverless development," is a tool for
+Agnes Farm Management API, often called "The swiss army knife for serverless development," is a tool for
 simplifying serverless application creation on popular cloud providers. It generates
 Python code, streamlines development, saves time, and ensures code consistency. 🚀
 """
@@ -25,7 +25,19 @@ tags_metadata = [
         "description": "Operations related to users, providing functionality through a RESTful API.",
     },
     {
-        "name": "Health Check",
+        "name": "Locations",
+        "description": "A health check endpoint to verify the API's functional condition.",
+    },
+    {
+        "name": "Devices",
+        "description": "A health check endpoint to verify the API's functional condition.",
+    },
+    {
+        "name": "Categories",
+        "description": "A health check endpoint to verify the API's functional condition.",
+    },
+    {
+        "name": "Readings",
         "description": "A health check endpoint to verify the API's functional condition.",
     },
 ]
@@ -45,9 +57,9 @@ else:
 
 
 app = FastAPI(
-    title="Spartan",
+    title="Agnes",
     description=description,
-    version="0.2.5",
+    version="0.1.0",
     terms_of_service="N/A",
     contact={
         "name": "Sydel Palinlin",
@@ -74,6 +86,10 @@ app.add_middleware(
 
 app.include_router(health.route)
 app.include_router(users.route)
+app.include_router(categories.route)
+app.include_router(locations.route)
+app.include_router(devices.route)
+app.include_router(readings.route)
 
 
 templates = Jinja2Templates(directory="public")

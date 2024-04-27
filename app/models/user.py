@@ -1,4 +1,8 @@
 from sqlalchemy import Column, DateTime, Integer, String, func
+from sqlalchemy.orm import relationship
+
+from app.models.reading import Reading
+
 
 from .base import Base
 
@@ -24,3 +28,5 @@ class User(Base):
     password = Column(String)
     created_at = Column(DateTime, nullable=False, default=func.current_timestamp())
     updated_at = Column(DateTime, nullable=False, default=func.current_timestamp())
+
+    readings = relationship(Reading, back_populates="user")
