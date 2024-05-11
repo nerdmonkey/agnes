@@ -26,18 +26,22 @@ tags_metadata = [
     },
     {
         "name": "Locations",
-        "description": "A health check endpoint to verify the API's functional condition.",
+        "description": "Operations related to locations, providing functionality through a RESTful API.",
     },
     {
         "name": "Devices",
-        "description": "A health check endpoint to verify the API's functional condition.",
+        "description": "Operations related to devices, providing functionality through a RESTful API.",
     },
     {
         "name": "Categories",
-        "description": "A health check endpoint to verify the API's functional condition.",
+        "description": "Operations related to categories, providing functionality through a RESTful API.",
     },
     {
         "name": "Readings",
+        "description": "Operations related to readings, providing functionality through a RESTful API.",
+    },
+    {
+        "name": "Health Check",
         "description": "A health check endpoint to verify the API's functional condition.",
     },
 ]
