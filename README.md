@@ -1,7 +1,7 @@
-# Agnes API
+![Agnes Logo](agnes.svg)
 
-## About Agnes API
-Agnes API is a dynamic platform designed for the agricultural community, providing essential tools and resources to enhance farming operations. It facilitates efficient data exchange and management, supporting farmers in optimizing productivity."This system will manage all nodes in the farm.
+## Introduction
+Agnes is a dynamic platform designed for the agricultural community, providing essential tools and resources to enhance farming operations. It facilitates efficient data exchange and management, supporting farmers in optimizing productivity."This system will manage all nodes in the farm.
 
 ## Installation
 1. Install all the required packages
