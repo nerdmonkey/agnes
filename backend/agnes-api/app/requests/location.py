@@ -1,11 +1,11 @@
 from typing import Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 
 
-class CategoryCreateRequest(BaseModel):
+class LocationCreateRequest(BaseModel):
     """
-    Represents a Category request.
+    Represents a Location request.
 
     Attributes:
         email (str): The email name.
@@ -21,14 +21,16 @@ class CategoryCreateRequest(BaseModel):
     name: str
     description: str
 
-    @validator("name", pre=True, always=True)
+    @field_validator("name", mode="before")
+    @classmethod
     def check_name(cls, value):
         if not value.strip():
             raise ValueError("The name field is required")
 
         return value
 
-    @validator("description", pre=True, always=True)
+    @field_validator("description", mode="before")
+    @classmethod
     def check_description(cls, value):
         if not value.strip():
             raise ValueError("The description field is required")
@@ -36,9 +38,9 @@ class CategoryCreateRequest(BaseModel):
         return value
 
 
-class CategoryUpdateRequest(BaseModel):
+class LocationUpdateRequest(BaseModel):
     """
-    Data model for updating an existing Category.
+    Data model for updating an existing Location.
 
     Attributes:
         email (Optional[str]): The new email of the user. Optional.
@@ -49,14 +51,16 @@ class CategoryUpdateRequest(BaseModel):
     name: Optional[str]
     description: Optional[str]
 
-    @validator("name", pre=True, always=True)
+    @field_validator("name", mode="before")
+    @classmethod
     def check_name(cls, value):
         if not value.strip():
             raise ValueError("The name field is required")
 
         return value
 
-    @validator("description", pre=True, always=True)
+    @field_validator("description", mode="before")
+    @classmethod
     def check_description(cls, value):
         if not value.strip():
             raise ValueError("The description field is required")

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 
 
 class ReadingCreateRequest(BaseModel):
@@ -23,28 +23,32 @@ class ReadingCreateRequest(BaseModel):
     unit: str
     value: str
 
-    @validator("user_id", pre=True, always=True)
+    @field_validator("user_id", mode="before")
+    @classmethod
     def check_user_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The user_id field is required")
 
         return value
 
-    @validator("device_id", pre=True, always=True)
+    @field_validator("device_id", mode="before")
+    @classmethod
     def check_device_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The device_id field is required")
 
         return value
 
-    @validator("unit", pre=True, always=True)
+    @field_validator("unit", mode="before")
+    @classmethod
     def check_unit(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The unit field is required")
 
         return value
 
-    @validator("value", pre=True, always=True)
+    @field_validator("value", mode="before")
+    @classmethod
     def check_value(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The value field is required")
@@ -67,28 +71,32 @@ class ReadingUpdateRequest(BaseModel):
     unit: Optional[str]
     value: Optional[str]
 
-    @validator("user_id", pre=True, always=True)
+    @field_validator("user_id", mode="before")
+    @classmethod
     def check_user_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The user_id field is required")
 
         return value
 
-    @validator("device_id", pre=True, always=True)
+    @field_validator("device_id", mode="before")
+    @classmethod
     def check_device_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The device_id field is required")
 
         return value
 
-    @validator("unit", pre=True, always=True)
+    @field_validator("unit", mode="before")
+    @classmethod
     def check_unit(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The unit field is required")
 
         return value
 
-    @validator("value", pre=True, always=True)
+    @field_validator("value", mode="before")
+    @classmethod
     def check_value(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The value field is required")

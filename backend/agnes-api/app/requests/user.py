@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, EmailStr, validator
+from pydantic import BaseModel, EmailStr, field_validator
 
 
 class UserCreateRequest(BaseModel):
@@ -20,7 +20,8 @@ class UserCreateRequest(BaseModel):
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
 
-    @validator("username", pre=True, always=True)
+    @field_validator("username", mode="before")
+    @classmethod
     def check_name(cls, value):
         if not value.strip():
             raise ValueError("The name field is required")
@@ -33,7 +34,8 @@ class UserCreateRequest(BaseModel):
 
         return value
 
-    @validator("email", pre=True, always=True)
+    @field_validator("email", mode="before")
+    @classmethod
     def check_email(cls, value):
         if not value.strip():
             raise ValueError("The email field is required")
@@ -57,7 +59,8 @@ class UserUpdateRequest(BaseModel):
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
 
-    @validator("username", pre=True, always=True)
+    @field_validator("username", mode="before")
+    @classmethod
     def check_name(cls, value):
         if not value.strip():
             raise ValueError("The name field is required")
@@ -70,7 +73,8 @@ class UserUpdateRequest(BaseModel):
 
         return value
 
-    @validator("email", pre=True, always=True)
+    @field_validator("email", mode="before")
+    @classmethod
     def check_email(cls, value):
         if not value.strip():
             raise ValueError("The email field is required")

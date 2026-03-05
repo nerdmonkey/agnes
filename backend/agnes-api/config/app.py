@@ -3,7 +3,8 @@ from functools import lru_cache
 from typing import Optional
 
 from dotenv import load_dotenv
-from pydantic import BaseSettings, validator
+from pydantic import field_validator
+from pydantic_settings import BaseSettings
 
 load_dotenv(dotenv_path=".env")
 
@@ -47,7 +48,8 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "utf-8"
 
-    @validator("DB_PORT", pre=True, always=True)
+    @field_validator("DB_PORT", mode="before")
+    @classmethod
     def default_db_port(cls, v):
         try:
             return int(v)

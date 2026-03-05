@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 
 
 class DeviceCreateRequest(BaseModel):
@@ -28,60 +28,69 @@ class DeviceCreateRequest(BaseModel):
     visualization: int
     message_type: int
 
-    @validator("category_id", pre=True, always=True)
+    @field_validator("category_id", mode="before")
+    @classmethod
     def check_category_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The category_id field is required")
 
         return value
 
-    @validator("location_id", pre=True, always=True)
+    @field_validator("location_id", mode="before")
+    @classmethod
     def check_location_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The location_id field is required")
 
         return value
 
-    @validator("topic", pre=True, always=True)
+    @field_validator("topic", mode="before")
+    @classmethod
     def check_topic(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The topic field is required")
 
         return value
 
-    @validator("name", pre=True, always=True)
+    @field_validator("name", mode="before")
+    @classmethod
     def check_name(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The name field is required")
 
         return value
 
-    @validator("description", pre=True, always=True)
+    @field_validator("description", mode="before")
+    @classmethod
     def check_description(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The description field is required")
 
         return value
 
-    @validator("channel", pre=True, always=True)
+    @field_validator("channel", mode="before")
+    @classmethod
     def check_channel(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The channel field is required")
         return value
 
-    @validator("type", pre=True, always=True)
+    @field_validator("type", mode="before")
+    @classmethod
     def check_type(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The type field is required")
         return value
 
-    @validator("visualization", pre=True, always=True)
+    @field_validator("visualization", mode="before")
+    @classmethod
     def check_visualization(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The visualization field is required")
         return value
 
-    @validator("message_type", pre=True, always=True)
+    @field_validator("message_type", mode="before")
+    @classmethod
     def check_message_type(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The message_type field is required")
@@ -108,60 +117,69 @@ class DeviceUpdateRequest(BaseModel):
     visualization: Optional[int]
     message_type: Optional[int]
 
-    @validator("category_id", pre=True, always=True)
+    @field_validator("category_id", mode="before")
+    @classmethod
     def check_category_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The category_id field is required")
 
         return value
 
-    @validator("location_id", pre=True, always=True)
+    @field_validator("location_id", mode="before")
+    @classmethod
     def check_location_id(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The location_id field is required")
 
         return value
 
-    @validator("topic", pre=True, always=True)
+    @field_validator("topic", mode="before")
+    @classmethod
     def check_topic(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The topic field is required")
 
         return value
 
-    @validator("name", pre=True, always=True)
+    @field_validator("name", mode="before")
+    @classmethod
     def check_name(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The name field is required")
 
         return value
 
-    @validator("description", pre=True, always=True)
+    @field_validator("description", mode="before")
+    @classmethod
     def check_description(cls, value):
         if isinstance(value, str) and not value.strip():
             raise ValueError("The description field is required")
 
         return value
 
-    @validator("channel", pre=True, always=True)
+    @field_validator("channel", mode="before")
+    @classmethod
     def check_channel(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The channel field is required")
         return value
 
-    @validator("type", pre=True, always=True)
+    @field_validator("type", mode="before")
+    @classmethod
     def check_type(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The type field is required")
         return value
 
-    @validator("visualization", pre=True, always=True)
+    @field_validator("visualization", mode="before")
+    @classmethod
     def check_visualization(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The visualization field is required")
         return value
 
-    @validator("message_type", pre=True, always=True)
+    @field_validator("message_type", mode="before")
+    @classmethod
     def check_message_type(cls, value):
         if value is None or (isinstance(value, str) and not value.strip()):
             raise ValueError("The message_type field is required")
