@@ -1,3 +1,5 @@
+![Agnes Platform](docs/agnes.svg)
+
 # Agnes - Agricultural Farm Management Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
