@@ -7,7 +7,7 @@
 
 ## 📋 Overview
 
-Agnes is a modern farm management system that helps farmers optimize productivity by managing all nodes in the farm, from devices and sensors to locations, categories, and readings. The platform consists of multiple integrated components working together to provide a seamless agricultural management experience.
+Agnes is a modern farm management system that helps farmers optimize productivity by managing all nodes in the farm, from devices and sensors to locations, categories, and readings. The platform consists of multiple integrated components including a REST API backend, web application frontend, CLI tools, and workflow orchestration with n8n, working together to provide a seamless agricultural management experience.
 
 ## 🏗️ Project Structure
 
@@ -15,25 +15,24 @@ This is a monorepo containing multiple applications and services:
 
 ```
 agnes/
-├── backend/
-│   ├── agnes-api/          # FastAPI REST API service
-│   └── agnes-workflow/     # Workflow automation service
-├── frontend/
-│   ├── agnes-web-app/     # Web application
-│   └── agnes-cli/         # Command-line interface
-└── README.md              # This file
+├── backend/               # Agnes API - FastAPI REST API service
+├── frontend/              # Agnes Web App - Next.js application
+├── setup/                 # Installation and setup scripts
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-### Backend Services
+### 🔌 Backend Services
 
-#### **Agnes API** (`backend/agnes-api/`)
-A high-performance REST API built with FastAPI that provides:
-- User management
-- Device and sensor management
-- Location tracking
-- Category organization
-- Reading data collection and storage
-- Health monitoring
+#### **Agnes API** (`backend/`)
+A high-performance REST API built with FastAPI and Python 3.11+ that serves as the data backbone for the entire Agnes ecosystem. It provides:
+- 📡 IoT device and sensor management
+- 📊 Real-time data collection and readings
+- 🗺️ Location-based farm organization
+- 📁 Category management for devices and data
+- 👥 User authentication and authorization
+- ❤️ Health monitoring endpoints
 
 **Tech Stack:**
 - FastAPI 0.135.1
@@ -41,20 +40,29 @@ A high-performance REST API built with FastAPI that provides:
 - SQLAlchemy 2.0.48
 - PostgreSQL (via pg8000)
 - Alembic for migrations
-- AWS Lambda support (via Mangum)
+- Python Spartan CLI
 
-[📖 View API Documentation](backend/agnes-api/README.md)
+[📖 View API Documentation](backend/README.md)
 
-#### **Agnes Workflow** (`backend/agnes-workflow/`)
-Handles automated workflows and background processing for farm operations.
+### 🎨 Frontend Applications
 
-### Frontend Applications
+#### **Agnes Web App** (`frontend/`)
+Modern, responsive web interface built with Next.js for managing farm operations. Provides an intuitive dashboard for monitoring devices, viewing sensor data, and managing farm resources.
 
-#### **Agnes Web App** (`frontend/agnes-web-app/`)
-Modern web interface for managing farm operations.
+**Tech Stack:**
+- Next.js (React framework)
+- TypeScript
+- Tailwind CSS (PostCSS)
 
-#### **Agnes CLI** (`frontend/agnes-cli/`)
-Command-line tools for developers and system administrators.
+[📖 View Web App Documentation](frontend/README.md)
+
+### 🚧 Planned Components
+
+#### **Agnes CLI**
+Command-line interface tools for developers and system administrators to interact with the Agnes platform directly from the terminal.
+
+#### **Agnes Workflow (n8n)**
+Automated workflow orchestration using n8n for handling background processing, scheduled tasks, data synchronization, and integration with third-party services in farm operations.
 
 ## 🚀 Quick Start
 
@@ -74,7 +82,7 @@ Command-line tools for developers and system administrators.
 
 2. **Set up the API service**
    ```bash
-   cd backend/agnes-api
+   cd backend
    pip install -r requirements.txt
    cp .env.example .env
    # Edit .env with your configuration
@@ -87,7 +95,7 @@ Command-line tools for developers and system administrators.
    spartan db seed
    ```
 
-4. **Run the development server**
+4. **Run the API development server**
    ```bash
    spartan serve
    ```
@@ -95,12 +103,33 @@ Command-line tools for developers and system administrators.
    The API will be available at `http://localhost:8000`
    API documentation at `http://localhost:8000/docs`
 
+### Getting Started with the Web App
+
+1. **Navigate to the frontend directory**
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+   The web app will be available at `http://localhost:3000`
+
 ## 🧪 Testing
+
+### Backend API Tests
 
 Run tests for the API service:
 
 ```bash
-cd backend/agnes-api
+cd backend
 pytest
 ```
 
@@ -110,37 +139,59 @@ Run tests with coverage:
 pytest --cov=app --cov-report=html
 ```
 
+### Frontend Tests
+
+```bash
+cd frontend
+npm test
+```
+
 ## 📚 Documentation
 
-- [API Documentation](backend/agnes-api/README.md)
+- [API Documentation](backend/README.md)
 - [API Reference](http://localhost:8000/docs) (when running locally)
-- [Changelog](backend/agnes-api/CHANGELOG.md)
-- [Contributing Guidelines](backend/agnes-api/CONTRIBUTING.md)
-- [Code of Conduct](backend/agnes-api/CODE_OF_CONDUCT.md)
+- [Web App Documentation](frontend/README.md)
+- [Changelog](backend/CHANGELOG.md)
+- [Contributing Guidelines](backend/CONTRIBUTING.md)
+- [Code of Conduct](backend/CODE_OF_CONDUCT.md)
 
 ## 🛠️ Technology Stack
 
-### Backend
-- **Framework:** FastAPI
-- **Database:** PostgreSQL with SQLAlchemy ORM
-- **Validation:** Pydantic v2
-- **Migrations:** Alembic
-- **CLI Tool:** Python Spartan
-- **Cloud:** AWS Lambda ready (Mangum adapter)
+### Backend (Agnes API)
+- **Framework:** FastAPI 0.135.1
+- **Language:** Python 3.11+
+- **Database:** PostgreSQL with SQLAlchemy 2.0.48 ORM
+- **Validation:** Pydantic 2.12.5
+- **Migrations:** Alembic 1.18.4
+- **CLI Tool:** Python Spartan 0.3.9
+- **Testing:** pytest
+
+### Frontend (Agnes Web App)
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Build Tool:** PostCSS
+
+### Orchestration (Planned)
+- **Workflow Engine:** n8n
+- **Purpose:** Automated workflows, background processing, integrations
 
 ### Key Features
 - ✅ RESTful API architecture
 - ✅ Pydantic v2 data validation
 - ✅ Database migrations with Alembic
 - ✅ Comprehensive test coverage
-- ✅ AWS Lambda serverless deployment
+- ✅ Modern responsive web interface
 - ✅ FastAPI automatic API documentation
 - ✅ CORS middleware for web clients
 - ✅ Environment-based configuration
+- ✅ TypeScript for type safety
+- 🚧 CLI tools (coming soon)
+- 🚧 n8n workflow automation (coming soon)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](backend/agnes-api/CONTRIBUTING.md) for details on:
+We welcome contributions! Please see our [Contributing Guidelines](backend/CONTRIBUTING.md) for details on:
 
 - Code of conduct
 - Development process
@@ -167,4 +218,4 @@ Built with [Python Spartan](https://pypi.org/project/python-spartan/) - The Swis
 
 ---
 
-**Note:** Agnes is actively developed and maintained. For the latest updates, check the [Changelog](backend/agnes-api/CHANGELOG.md).
+**Note:** Agnes is actively developed and maintained. For the latest updates, check the [Changelog](backend/CHANGELOG.md).
