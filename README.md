@@ -7,11 +7,11 @@
 
 > A comprehensive platform designed for the agricultural community, providing essential tools and resources to enhance farming operations through efficient data exchange and management.
 
-## 📋 Overview
+## Overview
 
 Agnes is a modern farm management system that helps farmers optimize productivity by managing all nodes in the farm, from devices and sensors to locations, categories, and readings. The platform consists of multiple integrated components including a REST API backend, web application frontend, CLI tools, and workflow orchestration with n8n, working together to provide a seamless agricultural management experience.
 
-## 🏗️ Project Structure
+## Project Structure
 
 This is a monorepo containing multiple applications and services:
 
@@ -25,16 +25,16 @@ agnes/
 └── README.md
 ```
 
-### 🔌 Backend Services
+### Backend Services
 
 #### **Agnes API** (`backend/`)
 A high-performance REST API built with FastAPI and Python 3.11+ that serves as the data backbone for the entire Agnes ecosystem. It provides:
-- 📡 IoT device and sensor management
-- 📊 Real-time data collection and readings
-- 🗺️ Location-based farm organization
-- 📁 Category management for devices and data
-- 👥 User authentication and authorization
-- ❤️ Health monitoring endpoints
+- IoT device and sensor management
+- Real-time data collection and readings
+- Location-based farm organization
+- Category management for devices and data
+- User authentication and authorization
+- Health monitoring endpoints
 
 **Tech Stack:**
 - FastAPI 0.135.1
@@ -44,9 +44,9 @@ A high-performance REST API built with FastAPI and Python 3.11+ that serves as t
 - Alembic for migrations
 - Python Spartan CLI
 
-[📖 View API Documentation](backend/README.md)
+[View API Documentation](backend/README.md)
 
-### 🎨 Frontend Applications
+### Frontend Applications
 
 #### **Agnes Web App** (`frontend/`)
 Modern, responsive web interface built with Next.js for managing farm operations. Provides an intuitive dashboard for monitoring devices, viewing sensor data, and managing farm resources.
@@ -56,9 +56,9 @@ Modern, responsive web interface built with Next.js for managing farm operations
 - TypeScript
 - Tailwind CSS (PostCSS)
 
-[📖 View Web App Documentation](frontend/README.md)
+[View Web App Documentation](frontend/README.md)
 
-### 🚧 Planned Components
+### Planned Components
 
 #### **Agnes CLI**
 Command-line interface tools for developers and system administrators to interact with the Agnes platform directly from the terminal.
@@ -66,7 +66,7 @@ Command-line interface tools for developers and system administrators to interac
 #### **Agnes Workflow (n8n)**
 Automated workflow orchestration using n8n for handling background processing, scheduled tasks, data synchronization, and integration with third-party services in farm operations.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -124,7 +124,7 @@ Automated workflow orchestration using n8n for handling background processing, s
 
    The web app will be available at `http://localhost:3000`
 
-## 🧪 Testing
+## Testing
 
 ### Backend API Tests
 
@@ -148,7 +148,7 @@ cd frontend
 npm test
 ```
 
-## 📚 Documentation
+## Documentation
 
 - [API Documentation](backend/README.md)
 - [API Reference](http://localhost:8000/docs) (when running locally)
@@ -157,7 +157,7 @@ npm test
 - [Contributing Guidelines](backend/CONTRIBUTING.md)
 - [Code of Conduct](backend/CODE_OF_CONDUCT.md)
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend (Agnes API)
 - **Framework:** FastAPI 0.135.1
@@ -179,19 +179,19 @@ npm test
 - **Purpose:** Automated workflows, background processing, integrations
 
 ### Key Features
-- ✅ RESTful API architecture
-- ✅ Pydantic v2 data validation
-- ✅ Database migrations with Alembic
-- ✅ Comprehensive test coverage
-- ✅ Modern responsive web interface
-- ✅ FastAPI automatic API documentation
-- ✅ CORS middleware for web clients
-- ✅ Environment-based configuration
-- ✅ TypeScript for type safety
-- 🚧 CLI tools (coming soon)
-- 🚧 n8n workflow automation (coming soon)
+- RESTful API architecture
+- Pydantic v2 data validation
+- Database migrations with Alembic
+- Comprehensive test coverage
+- Modern responsive web interface
+- FastAPI automatic API documentation
+- CORS middleware for web clients
+- Environment-based configuration
+- TypeScript for type safety
+- CLI tools (coming soon)
+- n8n workflow automation (coming soon)
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](backend/CONTRIBUTING.md) for details on:
 
@@ -201,20 +201,20 @@ We welcome contributions! Please see our [Contributing Guidelines](backend/CONTR
 - Reporting bugs
 - Suggesting enhancements
 
-## 🔒 Security
+## Security
 
 If you discover any security vulnerabilities, please review our [security policy](../../security/policy) on how to report them responsibly.
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Credits
+## Credits
 
 - **Author:** [Sydel Palinlin](https://github.com/nerdmonkey)
 - **Contributors:** [All Contributors](../../contributors)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with [Python Spartan](https://pypi.org/project/python-spartan/) - The Swiss Army knife for serverless development.
 
